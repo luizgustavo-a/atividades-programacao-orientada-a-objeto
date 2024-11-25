@@ -89,9 +89,9 @@ public class Evento {
 
     @Override
     public String toString() {
-        // StringBuilder é um "montador de strings", está sendo criado para criar um bloco de String com todos os convidados
+        // StringBuilder é um "montador de strings", está sendo instanciado para criar um bloco de String com todos os convidados
         StringBuilder convidados = new StringBuilder();
-        // Pega a lista de assuntos e para cada um deles acrescenta no SB esse bloco de texto abaixo com as informações dos convidados
+        // Pega a lista de convidados e para cada um deles acrescenta no SB esse bloco de texto abaixo com as informações de cada um
         this.convidados.forEach(c -> convidados.append(String.format(
                 "-- Convidado ID.........: %d%n" +
                         "--- Nome................: %s%n" +
@@ -119,7 +119,7 @@ public class Evento {
                 String.format("- Mediador..............: %s%s",
                         (this.mediador != null) ? "Nome: " + this.mediador.getNome() : "Mediador não registrado",
                         (this.mediador != null) ? " | Telefone: " + this.mediador.getTelefone() : "") + "\n" +
-                // Adiciona os blocos de String que foi criado lá em cima de convidados
+                // Adiciona o bloco de String de convidados que foi criado lá em cima
                 "- Convidados............: \n" + convidados;
 
     }
