@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.List;
-
 public class Assunto {
     private static int geradorId;
 
@@ -12,7 +11,24 @@ public class Assunto {
         this.id = geradorId;
         geradorId++;
         this.descricao = descricao;
-        this.eventos= new ArrayList<>();
+        this.eventos = new ArrayList<>(); // Inicializa a lista de eventos
+    }
+    public boolean inserirEvento(Evento evento){
+        if (!eventos.contains(evento)) {  //verifica se o evento já está presente na lista eventos.
+            return eventos.add(evento); // Adição bem-sucedida
+        }
+        return false; // Evento já está associado
+
+        /* Se eventos.contains(evento) retornar true (o evento já existe na lista), a condição !eventos.contains(evento)
+        será false, e o bloco interno será ignorado.
+
+        Se eventos.contains(evento) retornar false (o evento não está na lista), a condição será true, e o código dentro
+        do bloco será executado.
+
+         */
+    }
+    public boolean removerEvento(Evento evento){
+        return eventos.remove(evento); // Remove se existir, retorna true ou false
     }
 
     public int getId() {
@@ -23,13 +39,10 @@ public class Assunto {
         return descricao;
     }
 
-    public boolean inserirEvento(Evento evento) {
-        return eventos.add(evento);
+    public List<Evento> getEventos() {
+        return eventos;
     }
 
-    public boolean removerEvento(Evento evento) {
-        return eventos.remove(evento);
-    }
 
     @Override
     public String toString() {
@@ -37,3 +50,4 @@ public class Assunto {
                 "- Descrição.............: " + this.descricao + "\n";
     }
 }
+

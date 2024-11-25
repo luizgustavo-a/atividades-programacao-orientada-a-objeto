@@ -1,7 +1,7 @@
 public class Tema {
     private static int geradorId;
 
-    private int id;
+    public int id;
     private String titulo;
     private String subTitulo;
 
@@ -14,6 +14,10 @@ public class Tema {
 
     public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getTitulo() {

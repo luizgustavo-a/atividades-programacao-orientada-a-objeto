@@ -11,26 +11,26 @@ public class Dica {
         geradorId++;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public Convidado getConvidado() {
-        return convidado;
+    public void registrarDica(Convidado convidado, Topico topico, String descricao) {
+        this.convidado = convidado;
+        this.topico = topico;
+        this.descricao = descricao;
     }
 
     public Topico getTopico() {
         return topico;
     }
 
-    public void registrarDica(Convidado c, Topico t, String descricao) {
-        this.convidado = c;
-        this.topico = t;
-        this.descricao = descricao;
+    public Convidado getConvidado() {
+        return convidado;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public int getId() {
+        return id;
     }
 
     @Override

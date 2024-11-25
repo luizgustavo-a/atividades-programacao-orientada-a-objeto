@@ -81,6 +81,7 @@ public class EventoApp {
         adicionarConvidadoAEvento(repositorioConvidados.get(4), repositorioEventos.get(1));
         adicionarConvidadoAEvento(repositorioConvidados.get(2), repositorioEventos.get(2));
         adicionarConvidadoAEvento(repositorioConvidados.get(0), repositorioEventos.get(3));
+        adicionarConvidadoAEvento(repositorioConvidados.get(2), repositorioEventos.get(3));
         adicionarConvidadoAEvento(repositorioConvidados.get(3), repositorioEventos.get(4));
         adicionarConvidadoAEvento(repositorioConvidados.get(0), repositorioEventos.get(5));
 
@@ -134,7 +135,6 @@ public class EventoApp {
         repositorioTopicos.add(new Topico("Descrição do tópico", repositorioAssuntos.get(0), evento1));
         registrarDica(repositorioConvidados.get(0), repositorioTopicos.get(0), "Descrição da dica");
 
-
         System.out.println(evento1);
         System.out.println(repositorioParticipantes.get(0));
         System.out.println(repositorioAssuntos.get(0));
@@ -143,6 +143,7 @@ public class EventoApp {
         System.out.println(repositorioParticipacao.get(0));
         System.out.println(evento1.getTema());
         System.out.println(repositorioTopicos.get(0));
+
     }
 
     private static Assunto getAssunto(String descricao) {
@@ -256,9 +257,9 @@ public class EventoApp {
         Participacao participacao = new Participacao(Date.valueOf(evento.getData().toLocalDate()));
         participacao.inserirParticipante(participante, evento);
         System.out.printf("Participação registrada. %n" +
-                            "Data: %s%n" +
-                            "Nome do participante: %s%n" +
-                            "Nome do evento: %s : %s%n%n",
+                        "Data: %s%n" +
+                        "Nome do participante: %s%n" +
+                        "Nome do evento: %s : %s%n%n",
                 dtf.format(evento.getData()),
                 participacao.getParticipante().getNome(),
                 participacao.getEvento().getTema().getTitulo(),
@@ -283,11 +284,11 @@ public class EventoApp {
 
     private static void exibirEvento(Evento evento) {
         System.out.printf("Evento ID: %d%n" +
-                "Data: %s%n" +
-                "Tema: %s : %s%n" +
-                "Duração: %d minutos%n" +
-                "Local: %s%n" +
-                "Mediador: %s%s%n",
+                        "Data: %s%n" +
+                        "Tema: %s : %s%n" +
+                        "Duração: %d minutos%n" +
+                        "Local: %s%n" +
+                        "Mediador: %s%s%n",
                 evento.getId(),
                 dtf.format(evento.getData()),
                 evento.getTema().getTitulo(),

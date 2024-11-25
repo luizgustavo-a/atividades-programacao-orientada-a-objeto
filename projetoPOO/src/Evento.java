@@ -62,7 +62,10 @@ public class Evento {
     }
 
     public boolean inserirAssunto(Assunto assunto) {
-        return this.assuntos.add(assunto);
+        if(!assuntos.contains(assunto)) {
+            return this.assuntos.add(assunto);
+        }
+        return false;
     }
 
     public boolean removerAssunto(Assunto assunto) {
@@ -74,7 +77,10 @@ public class Evento {
     }
 
     public boolean inserirConvidado(Convidado convidado) {
-        return this.convidados.add(convidado);
+        if(!convidados.contains(convidado)) {
+            return this.convidados.add(convidado);
+        }
+        return false;
     }
 
     public boolean removerConvidado(Convidado convidado) {
@@ -87,7 +93,7 @@ public class Evento {
         StringBuilder convidados = new StringBuilder();
         // Pega a lista de assuntos e para cada um deles acrescenta no SB esse bloco de texto abaixo com as informações dos convidados
         this.convidados.forEach(c -> convidados.append(String.format(
-                        "-- Convidado ID.........: %d%n" +
+                "-- Convidado ID.........: %d%n" +
                         "--- Nome................: %s%n" +
                         "--- Função..............: %s%n" +
                         "--- Rede Social.........: %s%n" +
@@ -111,7 +117,7 @@ public class Evento {
                 String.format("- Local.................: %s", (this.local != null) ? this.local : "Local não registrado") + "\n" +
                 // Se o atributo mediador estiver diferente de nulo vai aparecer o nome e o telefone, se for nulo "Mediador não registrado"
                 String.format("- Mediador..............: %s%s",
-                        (this.mediador != null) ? "Nome: " + this.mediador.getNome() : "Mediador não registrado.",
+                        (this.mediador != null) ? "Nome: " + this.mediador.getNome() : "Mediador não registrado",
                         (this.mediador != null) ? " | Telefone: " + this.mediador.getTelefone() : "") + "\n" +
                 // Adiciona os blocos de String que foi criado lá em cima de convidados
                 "- Convidados............: \n" + convidados;

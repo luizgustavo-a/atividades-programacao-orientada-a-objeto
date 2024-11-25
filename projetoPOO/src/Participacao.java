@@ -3,8 +3,8 @@ import java.util.Date;
 
 public class Participacao {
     private Date data;
-    private Participante participante;
     private Evento evento;
+    private Participante participante;
 
     public Participacao(Date data) {
         this.data = data;
@@ -19,12 +19,12 @@ public class Participacao {
         return data;
     }
 
-    public Participante getParticipante() {
-        return participante;
-    }
-
     public Evento getEvento() {
         return evento;
+    }
+
+    public Participante getParticipante() {
+        return participante;
     }
 
     @Override
