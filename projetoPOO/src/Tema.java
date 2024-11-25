@@ -2,19 +2,32 @@ public class Tema {
     private static int geradorId;
 
     private int id;
-    private String descricao;
+    private String titulo;
+    private String subTitulo;
 
-    public Tema(String descricao) {
+    public Tema(String titulo, String subTitulo) {
         this.id = geradorId;
         geradorId++;
-        this.descricao = descricao;
+        this.titulo = titulo;
+        this.subTitulo = subTitulo;
     }
 
     public int getId() {
         return id;
     }
 
-    public String getDescricao() {
-        return descricao;
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public String getSubTitulo() {
+        return subTitulo;
+    }
+
+    @Override
+    public String toString() {
+        return  "Tema ID.................: " + this.id + "\n" +
+                "- Título................: " + this.titulo + "\n" +
+                "- SubTítulo.............: " + this.subTitulo + "\n";
     }
 }

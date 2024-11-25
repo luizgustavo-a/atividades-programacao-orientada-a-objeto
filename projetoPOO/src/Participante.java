@@ -15,4 +15,12 @@ public class Participante extends Pessoa {
     public String getCurso() {
         return curso;
     }
+
+    @Override
+    public String toString() {
+        return  "Participante ID.........: " + super.getId() + "\n" +
+                "- Nome..................: " + super.getNome() + "\n" +
+                "- Matrícula.............: " + this.matricula + "\n" +
+                "- Curso.................: " + this.curso + "\n";
+    }
 }

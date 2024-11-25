@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Convidado extends Pessoa {
@@ -15,6 +16,7 @@ public class Convidado extends Pessoa {
         this.formacao = formacao;
         this.maiorTitulacao = maiorTitulacao;
         this.detalheProfissional = detalheProfissional;
+        this.eventos = new ArrayList<>();
     }
 
     public String getFuncao() {
@@ -43,5 +45,16 @@ public class Convidado extends Pessoa {
 
     public boolean removerEvento(Evento evento) {
         return this.eventos.remove(evento);
+    }
+
+    @Override
+    public String toString() {
+        return  "Convidado ID............: " + super.getId() + "\n" +
+                "- Nome..................: " + super.getNome() + "\n" +
+                "- Função................: " + this.funcao + "\n" +
+                "- Rede Social...........: " + this.redeSocial + "\n" +
+                "- Formação..............: " + this.formacao + "\n" +
+                "- Maior titulação.......: " + this.maiorTitulacao + "\n" +
+                "- Detalhe Profissional..: " + this.detalheProfissional + "\n";
     }
 }

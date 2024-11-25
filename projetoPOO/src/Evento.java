@@ -1,4 +1,6 @@
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Evento {
@@ -19,6 +21,8 @@ public class Evento {
         this.data = data;
         this.duracao = duracao;
         this.tema = tema;
+        this.assuntos = new ArrayList<>();
+        this.convidados = new ArrayList<>();
     }
 
     public int getId() {
@@ -75,6 +79,43 @@ public class Evento {
 
     public boolean removerConvidado(Convidado convidado) {
         return this.convidados.remove(convidado);
+    }
+
+    @Override
+    public String toString() {
+        // StringBuilder é um "montador de strings", está sendo criado para criar um bloco de String com todos os convidados
+        StringBuilder convidados = new StringBuilder();
+        // Pega a lista de assuntos e para cada um deles acrescenta no SB esse bloco de texto abaixo com as informações dos convidados
+        this.convidados.forEach(c -> convidados.append(String.format(
+                        "-- Convidado ID.........: %d%n" +
+                        "--- Nome................: %s%n" +
+                        "--- Função..............: %s%n" +
+                        "--- Rede Social.........: %s%n" +
+                        "--- Formação............: %s%n" +
+                        "--- Maior titulação.....: %s%n" +
+                        "--- Detalhe Profissional: %s%n",
+                c.getId(),
+                c.getNome(),
+                c.getFuncao(),
+                c.getRedeSocial(),
+                c.getFormacao(),
+                c.getMaiorTitulacao(),
+                c.getDetalheProfissional())
+        ));
+
+        return  "Evento ID...............: " + this.id + "\n" +
+                "- Data..................: " + DateTimeFormatter.ofPattern("dd/MM/yyyy").format(this.data) + "\n" +
+                "- Tema..................: " + this.tema.getTitulo() + " - " + this.tema.getSubTitulo() + "\n" +
+                "- Duração...............: " + this.duracao + " minutos" + "\n" +
+                // Se o atributo local for diferente de nulo vai o que está nele, se for nulo vai "Local não registrado"
+                String.format("- Local.................: %s", (this.local != null) ? this.local : "Local não registrado") + "\n" +
+                // Se o atributo mediador estiver diferente de nulo vai aparecer o nome e o telefone, se for nulo "Mediador não registrado"
+                String.format("- Mediador..............: %s%s",
+                        (this.mediador != null) ? "Nome: " + this.mediador.getNome() : "Mediador não registrado.",
+                        (this.mediador != null) ? " | Telefone: " + this.mediador.getTelefone() : "") + "\n" +
+                // Adiciona os blocos de String que foi criado lá em cima de convidados
+                "- Convidados............: \n" + convidados;
+
     }
 }
 

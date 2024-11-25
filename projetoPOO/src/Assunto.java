@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Assunto {
@@ -11,6 +12,7 @@ public class Assunto {
         this.id = geradorId;
         geradorId++;
         this.descricao = descricao;
+        this.eventos= new ArrayList<>();
     }
 
     public int getId() {
@@ -25,7 +27,13 @@ public class Assunto {
         return eventos.add(evento);
     }
 
-    public boolean removerrEvento(Evento evento) {
+    public boolean removerEvento(Evento evento) {
         return eventos.remove(evento);
+    }
+
+    @Override
+    public String toString() {
+        return  "Assunto ID..............: " + this.id + "\n" +
+                "- Descrição.............: " + this.descricao + "\n";
     }
 }

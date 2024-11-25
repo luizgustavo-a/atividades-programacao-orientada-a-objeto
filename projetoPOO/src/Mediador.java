@@ -9,4 +9,11 @@ public class Mediador extends Pessoa {
     public String getTelefone() {
         return telefone;
     }
+
+    @Override
+    public String toString() {
+        return  "Mediador ID.............: " + super.getId() + "\n" +
+                "- Nome..................: " + super.getNome() + "\n" +
+                "- Telefone..............: " + this.getTelefone() + "\n";
+    }
 }
